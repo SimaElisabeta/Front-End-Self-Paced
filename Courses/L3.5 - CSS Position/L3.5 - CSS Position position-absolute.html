@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position absolute</title>
+
+    <style>
+        body {
+            font-weight: bold;
+        }
+
+        .parent {
+            background-color: lightblue;
+            width: 500px;
+            height: 500px;
+            position: relative;
+            margin: 10px;
+            border: 2px solid lightgray;
+        }
+
+        .first {
+            background-color: lightgreen;
+            width: 200px;
+            height: 200px;
+            /* position: static; */
+            position: relative;
+        }
+
+        .second {
+            background-color: lightgoldenrodyellow;
+            width: 100px;
+            height: 100px;
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+
+            /* position: absolute;
+            top: 0;
+            right: 0; */
+        }
+
+        p {
+            margin: 0;
+        }
+
+        div.center-text p {
+            position: relative;
+            top: 40%;
+            text-align: center;
+        }
+
+        .right-bottom {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <p class="right-bottom">parent</p>
+        <div class="center-text">
+            <div class="first">
+                <p>first</p>
+                <div class="second">
+                    <p>second nested</p>
+                </div>
+            </div>
+
+            <div class="second">
+                <p>second</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

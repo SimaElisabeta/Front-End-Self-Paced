@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Effects Part 2 - Transformations</title>
+
+    <!-- 
+        Transformations
+        - Transformations allow to rotate, shear, skew, and scale selected elements without affecting other elements on the Web page. 
+        The CSS property transform is required to be used, which allows you to do 2D and 3D transformations. For a 2D transformation 
+        with the transform property, the following functions are used:
+            * translate() - offsets the element from its normal position to the right and down using the X and Y coordinates. 
+            To offset the element to the left or up, you must use negative values for the coordinates. 
+                For example:
+                .translate {
+                    transform: translate(100px, 100px);
+                }
+
+            * rotate() - rotates an element by a specified number of degrees. If the value is positive, the element is 
+            rotated clockwise, negative - counter clockwise. 
+                For example:
+                .rotate{
+                    transform: rotate(25deg);
+                }
+
+            * scale() - resizes elements up or down according to the given width and height values.
+                * scaleX() - changes the width of the element. The negative values display the element horizontally.
+                * scaleY() - changes the height of an element. The negative values display the element vertically.
+                EXAMPLES: transform: scaleX(-1); transform: scale(1.5);
+            
+            * skew() - skews the element along the x and y axes at the given angles.
+                * skewX() - skews the element along the x-axis by the given angle.
+                * skewY() - skews the element along the y-axis by the given angle.
+    -->
+
+    <style>
+        .menu {
+            display: flex;
+            flex-direction: row;
+            list-style-type: none;
+        }
+
+        .menu li {
+            transform: skew(-15deg);
+        }
+
+        a {
+            background-color: #76CDD8;
+            border: 2px solid white;
+            color: white;
+            display: block;
+            font-size: x-large;
+            padding: 15px;
+            text-decoration: none;
+            width: 200px;
+            transition-property: width, background-color;
+            transition-duration: 1s, 500ms;
+        }
+
+        a:hover {
+            background-color: #CEDB56;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            width: 300px;
+        }
+
+
+        .card-flipper {
+            display: inline-block;
+            height: 300px;
+            width: 200px;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+            cursor: pointer;
+        }
+
+        .card {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            backface-visibility: hidden;
+        }
+
+        .card-front {
+            color: white;
+            background-color: #008ACE;
+            font-size: xx-large;
+        }
+
+        .card-back {
+            color: #222222;
+            background-color: #CEDB56;
+            transform: rotateY(180deg);
+        }
+
+        .card-flipper:hover {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Prices</a></li>
+        <li><a href="#">Contacts</a></li>
+    </ul>
+
+    <div class="card-flipper">
+        <div class="card card-front"> Html </div>
+        <div class="card card-back"> HTML card back </div>
+    </div>
+</body>
+
+</html>

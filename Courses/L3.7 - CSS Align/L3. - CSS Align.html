@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Align</title>
+
+    <!-- 
+        !Important: Property text-align affects not only text, but all inline and inline-block elements contained in the container. 
+        If there is a block element in the container, it inherits the parent property value text-align.
+
+        HORIZONTAL ALIGNMENT
+        - CSS3 has two new property values text-align: start and end. These values make it easier for websites to support multiple languages.
+            EXAMPLE: p {
+                        text-align: left;
+                        text-align: right;
+                        text-align: center;
+                        text-align: justify; - the content is placed so that the maximum possible number of blocks fit on one line, the first word in this line is along the left edge, and the last word — along the right edge.
+
+                        text-align: start;
+                        text-align: end;
+                    }
+        - The property direction is used to set the language direction. It sets the flow direction of content within a block-level element. 
+        This applies to text, inline, and inline-block elements. It also sets the default text alignment and the direction in which table cells 
+        offset in a table row. The values of the property direction:
+            EXAMPLE: .main-content {
+                        direction: rtl;
+                        direction: ltr;
+                        direction: inherit;
+                    }
+            * ltr - From the left to right, by default.
+            * rtl - From the right to left.
+            * inherit - Inherits value from parent element.
+        
+        - If there are two or more block-level elements that are required to be aligned horizontally in a row, then a different value displaymust be set them.
+        EX1.
+
+        - In practice, the task often arises to align a block element to the center of its parent. To solve it, it is enough to use the properties 
+        margin-left and margin-right with the values auto.
+        EX2.
+
+
+
+        VERTICAL ALIGNMENT
+            EXAMPLE: .main-content {
+                            vertical-align: super;
+                        }
+        - If the vertical alignment for an inline element within its containing row or table cell is required to be set, the property vertical-align can be used.
+        Alignments values:
+            * baseline — aligns the baseline of this element with the baseline of the parent element. If the parent does not have a baseline, then the element's 
+            bottom border acts as the baseline. This value is the default value.
+            * top — aligns the top edge of the element with the top of the tallest element in the row.
+            * bottom — aligns the base of this element with the bottom of the element in the row below it.
+            * middle — aligns the element's midpoint to the parent's baseline and half the parent's height.
+            * text-top — the element's top border is aligned with the tallest text element on the current line.
+            * text-bottom — the bottom of the element is aligned with the bottommost edge of the current line.
+            * sub — the element is displayed as a subscript, as a subscript; the font size does not change.
+            * super — the element is displayed as superscript, as a superscript; font size is the same.
+            * px, %, em, rem — as a value, percentages, pixels, or other units of measurement can be used. 
+            A positive number offsets the element up relative to the baseline, while a negative number moves it down. 
+            When using percentages, the countdown is based on the value of the property line-height, while 0% is similar to the value baseline.
+
+        
+        CONTENT ALIGNMENT TECHNIQUE GUIDELINES
+        - Horizontal Alignment:
+            * To horizontally align inline and inline-block elements within a block container, use the property.
+            * To horizontally align block elements, convert them to inline-block elements using the property display. So they can be aligned using the property text-align
+            * To align a block element horizontally, use the properties margin-left and margin-right with a value auto
+        
+        - Vertical Alignment:
+            * For height centering, use a flex. The disadvantage of this approach — not well supported by older browsers.
+            * An approach with display: table-cell is used for cases where the height of the parent and nested element is unknown.
+            * The usage transform + translate is possible in the case when there is no information about the size of the nested block.
+            
+    -->
+
+    <style>
+        /* EX1. Aligning block elements */
+        div {
+            border: 1px solid #D35D47;
+            padding: 20px;
+        }
+
+        .wrapper {
+            text-align: right;
+            width: 50%;
+        }
+
+        .wrapper div {
+            display: inline-block;
+            /* if text-align: center; is not specified here then it will inherit the parrent alignment */
+            text-align: center;
+            width: 25%;
+        }
+
+        /* EX2. Centering block elements */
+        .wrapper-2 {
+            border: 1px solid #D35D47;
+            height: 200px;
+            padding: 20px;
+            width: 200px;
+        }
+
+        .item {
+            background-color: #76CDD8;
+            height: 80%;
+            margin-right: auto;
+            margin-left: auto;
+            /* or use showrwtiring -> margin: 0 auto; (top-bottom = 0 ; left-right = auto)*/
+            margin: 0 auto;
+            width: 60%;
+        }
+
+
+        /* EX3. Vertical Alignment - part 1 */
+        ul {
+            align-items: baseline;
+            font-size: 0px;
+            list-style-type: none;
+        }
+
+        li {
+            display: inline;
+            font-size: x-large;
+        }
+
+        li>a {
+            background-color: #76CDD8;
+            color: white;
+            display: inline-block;
+            padding: 15px;
+            text-decoration: none;
+            width: 200px;
+        }
+
+        .new {
+            color: red;
+            vertical-align: super;
+            line-height: 0;
+        }
+
+
+        /* Vertical Alignment - part 2 */
+        .wrapper-3 {
+            border: 1px solid #D35D47;
+            height: 200px;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        img {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Aligning block elements -->
+    <div class="wrapper">
+        <div>Div 1
+            <p>text paragraph 1</p>
+        </div>
+        <div>Div 2
+            <p>text paragraph 2</p>
+        </div>
+    </div>
+
+    <!-- Centering block elements -->
+    <div class="wrapper-2">
+        <div class="item"></div>
+    </div>
+
+    <!-- Vertical Alignment -->
+    <div>
+        <ul>
+            <li><a href="#">Sport</a></li>
+            <li><a href="#">Art</a></li>
+            <li><a href="#">Weather <span class="new">New</span></a></li>
+            <li><a href="#">Art</a></li>
+        </ul>
+    </div>
+
+    <div class="wrapper-3">
+        <img src="https://elearn.epam.com/assets/courseware/v1/805b1749386c32da05a5a9855ad0df63/asset-v1:RD_CEE+FE+css-align+type@asset+block/basket-css.png"
+            alt="Picture">
+        <a href="#">Link</a>
+    </div>
+    <!-- This method can only be used if the parent container has a fixed height (px,%, etc.), so in this example, the container has a height set. -->
+</body>
+
+</html>

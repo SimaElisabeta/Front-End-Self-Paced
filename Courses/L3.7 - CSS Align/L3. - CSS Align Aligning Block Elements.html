@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aligning Block Elements</title>
+
+    <!-- 
+        EX1. Use property display: table-cell; in combination with vertical-align
+        EX2. Use absolute element positioning + margin
+        EX3. Alignment with flexbox
+            !Important: Using display: flex; simplifies the process of creating flexible and responsive layouts, 
+            providing a more intuitive way to arrange and align elements within a container.
+        EX4. Using the transform property with a value translate – 50%
+
+        CONCLUSION
+        CONTENT ALIGNMENT TECHNIQUE GUIDELINES
+        - Horizontal Alignment:
+            * To horizontally align inline and inline-block elements within a block container, use the property.
+            * To horizontally align block elements, convert them to inline-block elements using the property display. So they can be aligned using the property text-align
+            * To align a block element horizontally, use the properties margin-left and margin-right with a value auto
+        
+        - Vertical Alignment:
+            * For height centering, use a flex. The disadvantage of this approach — not well supported by older browsers.
+            * An approach with display: table-cell is used for cases where the height of the parent and nested element is unknown.
+            * The usage transform + translate is possible in the case when there is no information about the size of the nested block.
+    -->
+
+    <style>
+        /* EX1. */
+        .wrapper-1 {
+            border: 1px solid #D35D47;
+            display: table-cell;
+            vertical-align: middle;
+            height: 200px;
+            width: 200px;
+        }
+
+        .item-1 {
+            background-color: #76CDD8;
+            height: 60%;
+            width: 60%;
+        }
+
+        .item-1-center {
+            background-color: #76CDD8;
+            height: 60%;
+            width: 60%;
+            margin: auto;
+        }
+
+
+        /* EX2. */
+        .wrapper-2 {
+            border: 1px solid #D35D47;
+            height: 200px;
+            position: relative;
+            width: 200px;
+        }
+
+        .item-2 {
+            background-color: #76CDD8;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 60%;
+            height: 60%;
+        }
+
+
+        /* EX3. THE PREFERRED WAY! */
+        .wrapper-3 {
+            border: 1px solid #D35D47;
+            height: 200px;
+            width: 200px;
+
+            display: flex;
+            /* left-right positioning */
+            justify-content: center;
+            /* top-down positioning */
+            align-items: center;
+        }
+
+        .item-3 {
+            background-color: #76CDD8;
+            height: 60%;
+            width: 60%;
+        }
+
+
+        /* EX4. */
+        .wrapper-4 {
+            border: 1px solid #D35D47;
+            height: 200px;
+            position: relative;
+            width: 200px;
+        }
+
+        .item-4 {
+            background-color: #76CDD8;
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper-1">
+        <div class="item-1"></div>
+    </div>
+    <div class="wrapper-1">
+        <div class="item-1-center"></div>
+    </div>
+
+    <div class="wrapper-2">
+        <div class="item-2"></div>
+    </div>
+
+    <div class="wrapper-3">
+        <div class="item-3"></div>
+    </div>
+
+    <div class="wrapper-4">
+        <div class="item-4">
+            <p>Content</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

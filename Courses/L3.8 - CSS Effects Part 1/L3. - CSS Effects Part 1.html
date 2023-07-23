@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Effects. Part 1</title>
+
+    <!-- 
+        Linear Gradients:
+        - To set a linear gradient, use the function linear-gradient() in the property background or background-image.
+        background: linear-gradient(direction, first color, second color, etc. );
+            EXAMPLE: 
+                div {
+                    background: linear-gradient(#CEDB56, #008ACE);
+                }
+            Using the keywords corresponding to the angle of the gradient: to top (0deg), to right (90deg), to bottom (180deg), to left (270deg). 
+            Keywords can be combined. For example, if you want the gradient to transit from the top left to the bottom right of an element, 
+            use the following keywords to right bottom.
+
+        
+        Radial Gradients:
+        - To implement it, you need to use the function radial-gradient() in the property background or background-image. 
+        Please note that the first color specified in radial-gradient(), is positioned at the center of the element, and the second — on the outer border of the element.
+            EXAMPLE:
+                div {
+                    background: radial-gradient(circle, #008ACE, #CEDB56);
+                }
+        
+        Shadows:
+        - Shadows help to diversify the appearance of the text. They are translucent, colored, blurry, single-layer or multi-layer. In CSS, you can add shadows to text 
+        and to the elements on a page. To do this, you have to use the properties text-shadow and box-shadow.
+            EXAMPLE:
+                .text-shadow {
+                    font-size: 30px;
+                    text-shadow: 2px 4px 1px grey;
+                }
+
+                .box-shadow-outer {
+                    box-shadow: 4px 5px 8px 5px #76CDD8;
+                }
+
+        Filters:
+        - To add various visual effects to images, you can use the property filter.
+            EXAMPLE:
+                filter: blur(2px);
+                filter: brightness(70%);
+                filter: contrast(70%);
+                filter: saturate(70%);
+                filter: grayscale(100%); - Extracts colors from an image, making it black and white.
+                filter: invert(100%); - Makes the image negative. 
+                filter: sepia(50%); - Simulates a vintage image.
+
+    -->
+
+    <style>
+        .corners {
+            background-color: #76CDD8;
+            border-radius: 40px 40px 0 0;
+            height: 80px;
+            width: 200px;
+
+            /* set radius separately */
+            /* 
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px; 
+            */
+        }
+
+        div.corners {
+            /* background: linear-gradient(to right bottom, #CEDB56, #008ACE); */
+            background: linear-gradient(to left, #CEDB56, #008ACE);
+            /* background: radial-gradient(circle, #008ACE, #CEDB56); */
+        }
+
+        .ball {
+            background: radial-gradient(circle at 90% 25%, #76CDD8, #b6d7db);
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
+        }
+
+
+        .gallery img {
+            filter: grayscale();
+            margin-right: 10px;
+        }
+
+        .gallery img:hover {
+            box-shadow: 0 0 2px 4px #76CDD8;
+            filter: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="corners"></div>
+    <br>
+    <div class="ball"></div>
+    <br>
+
+    <div class="gallery">
+        <img src="https://elearn.epam.com/assets/courseware/v1/050aab54ee0527758f92562449edba33/asset-v1:RD_CEE+FE+css-effects+type@asset+block/closest-side.jpg"
+            alt="Basketball">
+        <img src="https://elearn.epam.com/assets/courseware/v1/7062af423bd8c5e0fe898520e0bad499/asset-v1:RD_CEE+FE+css-effects+type@asset+block/farthest-side.jpg"
+            alt="Volleyball">
+        <img src="https://elearn.epam.com/assets/courseware/v1/d655756676806ecec9ce9bbecc0076f4/asset-v1:RD_CEE+FE+css-effects+type@asset+block/closest-corner.jpg"
+            alt="Magnet">
+        <img src="https://elearn.epam.com/assets/courseware/v1/812711e998edc29d3bca73ff8cc25027/asset-v1:RD_CEE+FE+css-effects+type@asset+block/farthest-corner.jpg"
+            alt="Dog">
+    </div>
+</body>
+
+</html>

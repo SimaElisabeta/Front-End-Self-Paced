@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Properties Overview</title>
+
+    <!-- A generic or shorthand property is a CSS property, which allows to set the value of several other CSS properties simultaneously.
+        
+        1) EXAMPLE for border:
+            border: 2px solid blue;
+            * 2px - border-width: medium;
+            * solid - border-style: double dotted solid dashed;
+            * blue - border-color: red orange yellow green;
+        
+        2) EXAMPLE for background:
+            background: url(check.png) center repeat-y;
+            * url - background-image: url(check.png);
+            * center - background-position: center;
+            * repeat-y - background-repeat: repeat-y;
+
+            Aditional properties:
+            * background-color: steelblue;
+            * background-size: contain;
+
+        3) EXAMPLE for font:
+            font: italic 2em "Courier New";
+            * italic - font-style: italic;
+            * 2em - font-weight: 2em;
+            * "Courier New" - font-family: "Courier New";
+            
+    -->
+
+    <style>
+        .box {
+            border: 7px solid #76cdd8;
+            background-color: #FFC000;
+        }
+
+        .box-simple {
+            border: 2px solid blue;
+        }
+
+        .box-multiple-settings {
+            border-width: .5em 2px 5px thin;
+            border-color: red orange yellow green;
+            border-style: double dotted solid dashed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-multiple-settings">
+
+        <h1 class="box-simple">The a target attribute</h1>
+
+        <a href="https://www.w3schools.com" target="_blank">Visit W3Schools.com!</a>
+
+        <p>If you set the target attribute to "_blank", the link will open in a new browser window or a new
+            tab.</p>
+
+        <p class="box">
+            s
+        </p>
+    </div>
+</body>
+
+</html>

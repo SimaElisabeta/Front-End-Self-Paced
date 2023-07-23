@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Effects Part 2 lecture - Animation</title>
+
+    <!-- 
+        Animation:
+        - Animation makes it possible to animate the transitions between styles. In CSS, animation includes a description of a style and 
+        a specific set of master frames that define the start, end, and sometimes intermediate state of the styles that are being animated.
+
+        The following properties can be used to control animation:
+            * animation-name - defines the name of the @keyframes that sets up the frames of the animation.
+            * animation-duration - determines the time of one animation cycle.
+            * animation-timing-function - sets the animation acceleration.
+            * animation-delay - sets the delay between the time the element loads and the time the animation starts.
+            * animation-iteration-count - determines the number of repetitions of the animation; for infinite repetition of animation, the infinite value is used.
+            * animation-direction - has alternative path each time the animation is repeated, or reset all values and repeat the animation.
+            * animation-fill-mode - sets the values used by the animation before and after execution.
+            * animation-play-state - allows you to pause and resume the animation.
+
+        Note that there is a generic property animation, that has the following sub-properties: animation-name, animation-duration, animation-timing-function, 
+        animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, animation-play-state.
+        
+    -->
+
+    <style>
+        @keyframes filter {
+            from {
+                filter: grayscale();
+            }
+
+            to {
+                filter: none;
+            }
+        }
+
+        img {
+            filter: grayscale();
+        }
+
+        .animated:hover {
+            animation-name: filter;
+            animation-duration: 3s;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="animated"
+        src="https://elearn.epam.com/assets/courseware/v1/4c45bdfdc5fd7b7e72af888baafa9f08/asset-v1:RD_CEE+FE+css-effects+type@asset+block/element_selector_2.svg"
+        alt="Basketball">
+</body>
+
+</html>

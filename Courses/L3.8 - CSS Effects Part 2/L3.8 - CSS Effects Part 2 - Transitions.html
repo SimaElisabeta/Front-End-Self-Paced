@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Effects Part 2 - Transitions</title>
+
+    <!-- 
+        Transitions:
+        - Transitions make it possible to change from one style to another after a certain period of time at a given speed. 
+        So, for example, you can set up a smooth change in the color of a link when you hover over it. 
+        To implement the transition, 2 properties are required: transition-property and transition-duration.
+
+            * transition-property - sets the name of the CSS property for which the transition effect is applied. The default value is “all”. 
+            In this case, the transition is applied when any property that supports the transition changes. These properties include CSS properties 
+            for which you can define the transition from one value to another: colors, sizes, etc.
+                EXAMPLE: 
+                    .transition {
+                        transition-property: background-color;
+                    }
+
+            * transition-duration - sets the transition time. IT accepts one or more values in seconds or milliseconds.
+                EXAMPLE: 
+                    .transition { 
+                        transition-duration: 1s;
+                    }
+        
+            * transition-timing-function:
+                - The property specifies a function that determines how fast the transition takes place at different times. 
+                For example, the transition can be set fast at the beginning and slow at the end. The values  of the property transition-timing-function:
+                    * ease - Default value. The animation starts slowly, speeds up sharply, and gradually slows down towards the end.
+                    * linear - Animation moves from start to finish at a constant speed.
+                    * ease-in - The animation starts slowly, gradually speeds up towards the end, and then stops abruptly.
+                    * ease-out - Animation starts abruptly and gradually slows down towards the end.
+                    * ease-in-out - Animation starts slowly, speeds up and then slows down towards the end.
+                    * steps(number_of_steps, direction) - The steps() function notation defines a step function that divides the output range into equal steps.
+                    * cubic-bezier(n, n, n, n) - Allows you to set your own values (costumize transitions) in a function. For example cubic-bezier(0.1, 0.5, 1.0, 0.2). 
+                    Note that the other property values described above are also Bezier functions with certain coefficients.
+
+                    EXAMPLE:
+                        * In the considered example, the transition is over 3 steps. The parameter start means that the effect will occur at the beginning of the step. 
+                        If you want the effect to occur at the end, then the parameter direction should take the value end.
+                        .transition { 
+                            transition-timing-function: steps(3, start); 
+                        }
+                
+            * transition-delay:
+                - The property sets the delay before the transition starts. It is specified in seconds or milliseconds:
+                    EXAMPLE:
+                        .transition {
+                            transition-delay: 1s;
+                        }
+
+            * transition:
+                - The property transition is generic for properties: transition-property, transition-duration, transition-timing-function, transition-delay.
+                    EXAMPLE:
+                        .transition {
+                            transition: width 2s linear 500ms;
+                        }
+                - It is possible to set the transition for several properties separately, separated by commas. The example below sets different transition 
+                parameters for the properties width and background-color.
+                    EXAMPLE:
+                        .transition {
+                            transition:
+                            width 2s linear 500ms,
+                            background-color 1s;
+                        }
+
+    -->
+
+    <style>
+        /* 
+        - display: flex;: This property is used to create a flex container, which enables a flexible layout for its child elements. 
+        It establishes a flex formatting context and allows the use of flexbox properties. Elements inside a flex container can be 
+        horizontally or vertically aligned and can adjust their size and position based on available space.
+
+        - flex-direction: column;: This property determines the direction in which the flex items are laid out within the flex container. 
+        In this case, column is specified, meaning that the flex items will be arranged vertically from top to bottom. The main axis 
+        runs vertically, and the cross axis runs horizontally. 
+        */
+
+        .menu {
+            box-sizing: border-box;
+            display: flex;
+
+            /* sets the flex direction to be in collumn -> vertical  */
+            flex-direction: column;
+
+            /* removes the dots style from the list  */
+            list-style-type: none;
+        }
+
+        a {
+            background-color: #76CDD8;
+            border: 2px solid white;
+            /* margin-bottom: 4px; -> almost the same effect*/
+
+            /* text color */
+            color: white;
+
+            /* be default list has display: list-item; we need to change it into display block so all elements will ocupy 1 row and will be displayed one under another*/
+            display: block;
+
+            font-size: x-large;
+
+            /* resizing the boxes (makeing them bigger) without specifying width or height */
+            padding: 15px;
+
+            /* resizing width so the box will not extend to full width of parrent (in this case we have display block so it will extend to parent width) */
+            width: 200px;
+
+            /* removing text-decoration that a links have by default (the underline line) */
+            text-decoration: none;
+
+            /* transition-property will effect width and background-color on hover*/
+            transition-property: width, background-color;
+            /* transition-duration will effect width (1s) and background-color (500ms) on hover*/
+            transition-duration: 1s, 500ms;
+        }
+
+        a:hover {
+            background-color: #CEDB56;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Prices</a></li>
+        <li><a href="#">Contacts</a></li>
+    </ul>
+</body>
+
+</html>

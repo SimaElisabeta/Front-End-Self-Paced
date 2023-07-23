@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating boxes part 1</title>
+
+    <!-- 
+        Floating Concept
+        - Float element is called an element, are floated around the outline by other web page objects, such as text. 
+        Such elements are used when laying out web pages for: floating images with text, creating sidebars, horizontal menus, 
+        photo galleries, two and three column layouts.
+
+
+        Features of Use
+        - If the element has a property float with a value float: left or float: right, then it becomes a block element and 
+        the property display with a value block is automatically added to it. In this case, the width of the element is equal to 
+        its content plus the values of the properties padding, border and margin. This way the element behaves like an inline-block element.
+        - The element with a property float are horizontal to each other. According to a value  left it is from the left to right, 
+        and according to the value right — from the right to left. When the element closest to the floated element does not have enough space 
+        in width, it floats to the next line.
+        - The action float can be continued beyond the parent if the height of the floated element is greater than the height of the parent.
+        -> These floating features can negatively affect the layout of a Web page. To avoid the situations described above and achieve the desired 
+        result, it is required to cancel the action of the property float at the right moments using different methods.
+
+
+        
+        Advantages of using float:
+        * All browsers support this property.
+        * Easy to float text around an image.
+        * Sometimes such feature is used: the element that has the property float:right is placed second in order (from the right) on a 
+        two-column page, despite the fact that it is the first element in the HTML source code.
+
+        Desadvantages of using float:
+        * Not used for centering (horizontal or vertical).
+        * To avoid display and layout problems, the using of floating cancellation is required.
+        * If two float elements are encountered, one with a fixed width (px) and one next to it with a dynamic width (%), this can cause 
+        layout issues if there isn't enough horizontal space available.
+
+
+    -->
+
+    <style>
+        div {
+            border: 1px solid red;
+        }
+
+        .container {
+            width: 400px;
+        }
+
+        .block1 {
+            background-color: #76CDD8;
+        }
+
+        .block2-float {
+            float: right;
+            /* width: 37%; */
+            background-color: #CCCCCC;
+            /* margin-right: 20px;*/
+            /* margin-top: 20px;  */
+        }
+
+        .block3 {
+
+            background-color: #CEDB56;
+        }
+
+        .block4 {
+
+            background-color: #D35D47;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Container</h1>
+        <div class="block1">
+            <h2>Block 1</h2>
+            <p>Lorem ipsum...</p>
+        </div>
+        <div class="block2-float">
+            <h2>Block 2. Float</h2>
+            <p>Lorem, ipsum ...</p>
+        </div>
+        <div class="block3">
+            <h2>Block 3</h2>
+            <p>Lorem ipsum ...</p>
+        </div>
+        <div class="block4">
+            <h2>Block 4</h2>
+            <p>Lorem ipsum...</p>
+        </div>
+    </div>
+</body>
+
+</html>

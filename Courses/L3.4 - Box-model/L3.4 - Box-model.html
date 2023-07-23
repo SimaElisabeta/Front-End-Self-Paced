@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-model</title>
+
+    <!-- 
+        Units of measurement are divided into 2 groups: absolute and relative.    
+        
+        1) Absolute units of measurment: 
+        Rec­om­mended:
+        * Screen:	    em, px, %
+        * Print:    	em, cm, mm, in, pt, pc, %
+        EX1.
+
+        2) Relative units of measurement:
+        In practice, you will most likely use em, rem & %.
+        * em - relative to the parent element's font size.
+        * rem - relative to the font size of the root element.
+        * % - relative to the parent element.
+        EX2.
+
+
+        VISUAL FORMATTING MODEL:
+        The position of the blocks on the page is determined by the following factors:
+        1. the size of the element (taking into account whether they are set explicitly or not);
+        2. element type (inline or block);
+        3. positioning scheme (normal flow, positioned or floating elements);
+        4. relationships between elements in the DOM (parent — child);
+        5. internal dimensions of contained images;
+        6. external information (e.g. browser window dimensions).
+        
+
+        BLOCK ELEMENTS:
+        - Block elements  are elements that are visually formatted as blocks and positioned vertically on the page in the browser window.
+        - What is required to create a block element? Use a display property, with one of the  following values: block, list-item or table.
+
+        * Headings and paragraphs: <h1>—<h6>, <p>
+        * Lists: <ul>, <ol>, <li>
+        * Tables
+        * Forms
+        * Tag <div>
+        * Semantic tags (<header>, <nav>, <footer>, <aside>, <section>) etc.
+
+        - Block elements create a line break before and after the element. This creates a rectangular area that 
+        occupies the entire width of the page or parent block. Most often, block elements can store inline or other block elements inside.
+
+        !Important: Tag <p> is classified as a block-level element but must not contain another element <p>, or any other block-level element.
+
+
+        INLINE ELEMENTS:
+        - Inline elements generate inline containers. To create inline elements, use the property display, with one of the following values: inline or inline-table.
+        - There are some examples of inline tags: <a>, <img>, <label>, <span> etc. By default, such elements are located on the line one after another.
+
+
+        INLINE-BLOCK ELEMENTS:
+        - In addition to inline and block elements, one more group of elements is distinguished, namely, these are inline-block elements. What 
+        does it require to create an inline-block element? Use a property display with a value inline-block. Most often, these elements are inline, 
+        but you can set margins, padding, width, and height for them. Examples of inline-block tags are: <button>, <input>, <select>, <textarea> etc.
+
+
+        SPACES BETWEEN INLINE ELEMENTS:
+        - One of the main features of the inline and inline-block elements is a presence of spaces between them. They can be displayed directly next to each other, 
+        but have little space between them.
+        EX3.
+
+
+        BOX-MODEL PROPERTIES:
+        - Width and height: By default, each element has both a width and a height. Their values can even be null. The browser renders elements with a certain size, 
+        which can be changed using properties width and height.
+            !Important: Because inline elements don't have a fixed size, they don't have a width or height.
+        - Width: The default element width is based on the value display. For block elements, the default width is 100% of the parent block and takes up all the 
+        available horizontal space. To set a specific width for non-inline elements, use the property width:
+        - Height: The default height of an element is determined by its content. The element will expand and contract vertically as needed to fit its content. 
+        You can set a specific height for non-inline elements through the property height:
+        - Padding: The padding is set by the padding property. This is the distance between the main content and its border (frame). If for the element to which 
+        it applies "padding" to set the background, it is also applied to the margins of the element. Padding cannot be negative.
+        - Margin: The margin is set by the margin property. It adds a distance outside the element from the outer border of the frame to adjacent elements, 
+        thereby separating the elements on the page. Margin is always transparent and shows the background of the parent element through it. It can take negative values.
+        - Border: The border, or frame of an element, is set using the border property. It requires three values: width, style, and color.
+
+
+        OUTLINE PROPERTY:
+        WHAT FEATURES DOES THE OUTLINE PROPERTY FROM BORDER?
+
+        Outline property:
+        * Does not change the size and position of the element;
+        * Does not fill space, does not change surrounding elements, is displayed on top of them;
+        * Applying on specific sides of the border is impossible, the property is applied to all four sides at once.
+
+        Outline property can take the following values:
+        * outline-color -> Sets the color of the line in any valid CSS format.
+        * outline-style -> Sets the line style.
+        * outline-width -> Sets the width of the border.
+        * outline-offset -> Specifies the distance between the frame created with the outline property, and the edge or border of the element added via border.
+        
+
+        BOX-SIZING PROPERTY:
+        !Important: By default, the box model is additive. To calculate the actual box size of an element, don't forget to take into account the margins, 
+        borders, and padding for all four sides of the box.
+        - The property box-sizing helps to avoid this. It is used to change the algorithm for calculating the width and height of an element box. 
+        After applying it, the properties width and height set not the size of the content, but of the block.
+        - The box-sizing property can take the following values:
+        * content-box -> Properties width and height set the width and height of the content and do not include padding, margins, and borders.
+        * border-box -> Properties width and height include PADDING and BORDER values, but NO MARGIN!
+        * inherit -> Inherits the value of the parent.
+        EX4.
+
+        !!! REMEMBER:
+        
+        * Block Elements - are visually formatted as blocks and positioned vertically, creates a rectangular area that occupies the entire width of the page or parent block.
+            Example: display: block, list-item or table;
+                Headings and paragraphs: <h1>—<h6>, <p>
+                Lists: <ul>, <ol>, <li>
+                Tables
+                Forms
+                Tag <div>
+                Semantic tags (<header>, <nav>, <footer>, <aside>, <section>) etc.
+        * Inline Elements generate inline containers. By default, such elements are located on the line one after another.
+            Example: display: inline or inline-table;
+                <a>, <img>, <label>, <span> etc.
+        * Inline-block Elements. Most often, these elements are inline, but you can set margins, padding, width, and height for them.
+            Example: display: inline-block;
+                <button>, <input>, <select>, <textarea> etc.
+        
+            
+        Block elements characteristics:
+            * another element cannot be added to the line on which the block is located, even if there is free space;
+            * if the width value is not specified, the element is stretched to the entire parent container;
+            * if height is not specified, it expands to fit child elements;
+            * may have: margin and padding
+        
+        Inline elements characteristics:
+            * elements follow each other;
+            * width and height are ignored;
+            * if an inline element borders a block element, then a line break is required between them; (add this property: white-space: nowrap;)
+            * margin and padding can be used on the right and left, but margin can be used on the top and buttom;
+        
+        Inline-block elements characteristics:
+            * with respect to external elements behaves like inline, to internal — like block
+            * elements follow each other;
+            * if no width value is specified, it stretches to fit the width of the longest element inside;
+            * has width and height, margin-top and margin-bottom;
+    -->
+
+    <style>
+        /* EX1 */
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: blueviolet;
+        }
+
+
+
+        /* EX2 */
+        div.relative {
+            width: 70%;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        .article-img {
+            width: 50%;
+            /* height added for to see color */
+            height: 50px;
+            background: violet;
+        }
+
+
+        /* EX3 */
+        ul {
+            /* comment just font-size to see a difference */
+            font-size: 0;
+            list-style-type: none;
+            text-align: center;
+        }
+
+        /* to place an image in the center use the folloeing properties */
+        img.center-pic {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        li {
+            display: inline;
+        }
+
+        a {
+            background-color: #76CDD8;
+            color: white;
+            font-size: x-large;
+            padding: 15px;
+
+            /* inline-block sets a block for the inline with width: 200px; */
+            display: inline-block;
+            width: 200px;
+
+            /* removes the list dots decoration */
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #369eac;
+        }
+
+
+
+        /* EX4 */
+        div.box-sizing {
+            border: 5px solid red;
+            height: 200px;
+            padding: 20px;
+            width: 400px;
+        }
+
+        .block1 {
+            box-sizing: content-box;
+        }
+
+        .block2 {
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+
+        /* EX5 */
+        /* CSS for block element */
+        .block {
+            display: block;
+            background-color: lightblue;
+            width: 200px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        /* CSS for inline element */
+        .inline {
+            display: inline;
+            background-color: lightgreen;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        /* CSS for inline-block element */
+        .inline-block {
+            display: inline-block;
+            background-color: lightyellow;
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+
+        .container {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 500px) {
+
+            /* CSS for small screens */
+            .block {
+                width: auto;
+            }
+
+            .inline {
+                display: inline-block;
+                margin-bottom: 5px;
+                margin-top: 5px;
+            }
+
+
+            .inline-block {
+                /* display remains the same, just adding margin bottom*/
+                margin-bottom: 5px;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- EX5 -->
+    <h2>Block Elements</h2>
+    <div class="block">Block Element 1</div>
+    <div class="block">Block Element 2</div>
+
+    <h2>Inline Elements</h2>
+    <span class="inline">Inline Element 1</span>
+    <span class="inline">Inline Element 2</span>
+    <span class="inline">Inline Element 3</span>
+
+    <h2>Inline-Block Elements</h2>
+    <span class="inline-block">Inline-Block Element 1</span>
+    <span class="inline-block">Inline-Block Element 2</span>
+    <span class="inline-block">Inline-Block Element 3</span>
+
+    <nav>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+
+
+        <img class="center-pic"
+            src="https://elearn.epam.com/assets/courseware/v1/573054c4470123ea9aceb477693a4d8e/asset-v1:RD_CEE+FE+box-model+type@asset+block/css-3.4-block-model.svg"
+            alt="">
+    </nav>
+
+
+    <p class="logo"></p>
+
+    <div class="relative">
+        <h1>Hi there</h1>
+        <p class="article-img"></p>
+    </div>
+
+    <!-- EX4 -->
+    <div class="box-sizing block1">
+        box-sizing: content-box;
+    </div>
+    <div class="box-sizing block2">
+        box-sizing: border-box;
+    </div>
+</body>
+
+</html>

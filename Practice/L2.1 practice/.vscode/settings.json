@@ -1,0 +1,5 @@
+{
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.printWidth": 80,
+  "html.format.contentUnformatted": ""
+}

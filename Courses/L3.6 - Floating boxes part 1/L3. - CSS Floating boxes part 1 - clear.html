@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating boxes using clear</title>
+
+    <!-- 
+
+    -->
+
+    <style>
+        .container {
+            border: 1px solid red;
+            padding: 20px;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+
+        .container img {
+            float: left;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container clearfix">
+        <img src="https://elearn.epam.com/assets/courseware/v1/4c45bdfdc5fd7b7e72af888baafa9f08/asset-v1:RD_CEE+FE+css-float+type@asset+block/element_selector_2.svg"
+            alt="Picture">
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque provident assumenda eos esse cumque
+            asperiores dolores quasi fugiat aut quas. Quas ea dolorum esse obcaecati ex iure porro eum quod.
+        </p>
+    </div>
+</body>
+
+</html>

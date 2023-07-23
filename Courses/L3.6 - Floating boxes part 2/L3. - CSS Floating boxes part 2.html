@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating boxes part 2</title>
+
+    <!-- 
+        
+    Flex:
+        - The module Flexible Box Layout (Flexbox) is designed to create flexible layouts. It allows you to quite simply and flexibly arrange elements 
+        in a container, distribute the available space between them and align them, even if they do not have a specific size. CSS Flexbox makes it 
+        much easier to create a responsive design than using float and position. Responsive design allows the page to adapt to different screen sizes 
+        for a user-friendly display of content. Flexbox can be used both for CSS markup of the whole page and its individual blocks.
+        - Let's consider the features of the main axis in more detail. As it is well know, this is the main axis of the flex container along which 
+        the flex items are placed. This axis is not necessarily horizontal, its direction depends on flex-direction property, which is given below. 
+        Flex-direction allows you to arrange elements in a row or column, which in turn determines the direction of the axes:
+            * flex-direction: row;
+            * flex-direction: column;
+        - Flexbox module has 2 types of properties:
+            * container properties (the parent element is called the flex container);
+            * properties of child elements (flex items).
+    
+
+    Properties for flex container (parent):
+        Display:
+        - How to start using Flexbox for layout? First of all, to set the property display a value flex or inline-flex. After that, the used element 
+        becomes a flex container, and all its immediate children – flex-items. Initially (by default), flex items in a container takes up the full height 
+        of the container.
+        - What is the difference between values flex and inline-flex?
+            * Both of these values define how the flex container is presented on the page.
+            * If you want the container to be displayed as a block then a value flex is required to be used.
+            * In the case when you want to see the container as a string, then a values inline-flex is required to be used, and then this element takes 
+            up as much space on the page as required for its display.
+
+        Flex-direction:
+        - flex-direction - sets the main axis, defining the direction of the flex items placed in the flex container. It can have such values:
+            * row - Default value It displays the elements as a string. Elements can start from the left for ltr (left-to-right) languages or 
+            right-to-left for rtl (right-to-left) languages.
+            * row-reverse - The elements are arranged in reverse order to row value.
+        - The property flex-direction can also take the following values:
+            * column - The elements are arranged in a column from the top to bottom.
+            * column-reverse - It is the same as row-reverse but from the bottom to top.
+            !Important: The direction of elements can be set using the dir HTML attribute or the direction CSS property.
+        
+        Flex-wrap:
+        - Initially, all flex items tries to fit on the same line. But this is not always convenient. To allow elements to break to a new line as needed, 
+        it is required to use the property flex-wrap, which can have such values:
+            * nowrap - Default value. All flex items are placed on the same line
+            * wrap - Flex-items wrap multiple lines from the top to bottom
+            * wrap-reverse - Flex items wrap multiple lines from the bottom to top
+
+        Flex-flow:
+        - flex-flow — is shorthand for flex-direction and flex-wrap properties that together define the main and cross axes of the flex container. 
+        The default value is row nowrap.
+
+        Justify-content:
+        - justify-content Aligns flex items along the main axis of the current line of the flex container. This usually helps allocate extra free 
+        space if all flex items in a row are inflexible or flexible but have reached their maximum size. This property gives some control over the 
+        alignment of elements when they are outside of the line. It can have the following values:
+            * flex-start - Default value. The elements are offset to the beginning of the flex-direction
+            * flex-end - The elements are offset to the end of the flex direction
+            * center - The elements are centered along the line
+            * space-between - The elements are evenly distributed along the line. The first element is at the beginning of the line, the last element 
+            is at the end of the line
+            * space-around - The elements are evenly distributed along the line with the same space around them. Visually, the spaces are not equal 
+            since all elements have the same space on both sides. The first element has one unit of space against the edge of the container, but two 
+            units of space between the next element, because the next element has its own spacing
+            * space-evenly - The elements are distributed in such a way that the distance between any two elements (and the distance to the edges) is equal
+
+        Align-items:
+        - align-items determines how flex items are positioned along the cross axis on the current line. It takes the following values:
+            * flex-start - The elements are placed at the beginning of the cross axis.
+            * flex-end - The elements are placed at the end of the cross axis
+            * center - The elements are centered on the cross axis
+            * stretch - Default value: stretch to fill container (min-width / max-width are observed)
+            * baseline - The elements are aligned with their baseline
+
+        Align-content:
+        - align-сontent  aligns lines within a flex container when there is extra space on the cross axis. This property doesn't work when 
+        there is only one line of flex items. It takes the values:
+            * flex-start - The elements are offset to the beginning of the container
+            * flex-end/end - The elements are offset to the end of the container
+            * center - The elements are centered in the container
+            * space-between - The elements are evenly distributed. The first line is at the beginning of the container, and the last — at the end
+            * space-around - The elements are evenly distributed with equal space around each row
+            * space-evenly - The elements are distributed evenly, they have the same space around them
+            * stretch - Default value: lines stretch to fill the whole space
+    
+
+    Properties for flex items:
+        Order:
+        - By default, flex items are in their initial order. The property  order controls the order in which they appear in the flex container.
+
+        Flex-grow and flex-shrink:
+            * flex-grow determines the ability of a flex element to stretch if necessary (if there is free space). The value of this property is 
+            the proportion. flex-grow defines how much available space inside the flex container the element should occupy
+            * flex-shrink determines the ability of a flexible element to compress when required. The value must be a positive number.
+    
+    Advantages and disadvantages of using flex-boxes:
+        Advantages: 
+            * Blocks become flexible, elements can shrink and stretch to fill the space.
+            * Vertical and horizontal alignment of objects.
+            * Controlling the position of objects without changing their order in the HTML code.
+            * Elements can line up independently in a row or form a column.
+            * Easy adaptation to RTL (right-to-left) text direction. If the browser locale is set to RTL, all flex items are displayed automatically in reverse order.
+        
+        Disadvantages:
+            * Flex items must be combined within the parent element.
+            * This method seems to be complicated due to the large number of its possibilities.
+            * Browser support is still somewhat limited for some property values.
+        
+    -->
+
+    <style>
+        .container {
+            border: 3px solid lightblue;
+            display: flex;
+            /* we need to set fixed height of the container to see the changes for cross axis  */
+            height: 45vh;
+            /* width: 60vh; */
+        }
+
+        .row {
+            /* placing the boxes in row  */
+            flex-direction: row;
+
+            /* aligning items horizontally on the row (main axis) */
+            justify-content: center;
+
+            /* aligning items vertically on the row (cross axis) */
+            align-items: center;
+
+            /* wrapping items to continue on the next line  */
+            flex-wrap: wrap;
+            align-content: center;
+
+            /* shorthand for flex-direction and flex-wrap properties  */
+            /* flex-flow: row wrap; */
+        }
+
+        .coll {
+            /* placing the boxes in column  */
+            flex-direction: column;
+
+            /* aligning items horizontally on the coll (cross axis) */
+            align-items: center;
+
+            /* aligning items vertically on the coll (main axis) */
+            justify-content: center;
+
+            /* wrapping items to continue one after the other  */
+            flex-wrap: wrap;
+            align-content: center;
+        }
+
+        .box {
+            background: gold;
+            margin: 1rem;
+            text-align: center;
+
+            /* flex-grow: for rows it will grow to fit all the space available in the horizontal (main axis)  */
+            /* flex-grow: for column it will grow to fit all the space available in the vertical (main axis)  */
+            flex-grow: 1;
+
+            /* flex-basis: for rows it will set the width of the box (main axis) */
+            /* flex-basis: for column it will set the height of the box (main axis) */
+            flex-basis: 5rem;
+
+            width: 5rem;
+            height: 5rem;
+
+            /* shorthand for flex-grow, flex-shrink and flex-basis */
+            /* flex: 1, 0, 5rem; */
+        }
+
+        .box-different {
+            /* only working when using no-wrap */
+            /* alignes only one item on the cross axis, vertically*/
+            /* align-self: flex-end; */
+
+            /* shrink with value 0 prevents the box to shrink when resizing the web page  */
+            flex-shrink: 0;
+
+            /* flex-grow with value 0 prevents the box to grow, it keeps the original value size from flex-basis OR width and height */
+            flex-grow: 0;
+        }
+
+        .box-img {
+            margin: 1rem;
+            text-align: center;
+        }
+
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container row">
+        <div class="box box-different">row</div>
+        <div class="box">row</div>
+        <div class="box">row</div>
+        <div class="box box-different">row</div>
+        <div class="box">row</div>
+        <div class="box">row</div>
+        <div class="box box-different">row</div>
+    </div>
+
+    <div class="container coll">
+        <div class="box box-different">coll</div>
+        <div class="box">coll</div>
+        <div class="box">coll</div>
+        <div class="box">coll</div>
+        <div class="box box-different">coll</div>
+    </div>
+
+    <div class="container coll" style="height: auto;">
+        <div class="box-img"><img src="/src/flex_direction.JPG" alt="direction"></div>
+        <div class="box-img"><img src="/src/flex_direction_aligning.JPG" alt="aligning"></div>
+        <div class="box-img"><img src="/src/flex_direction_sizing_items.JPG" alt="aligning"></div>
+    </div>
+</body>
+
+</html>

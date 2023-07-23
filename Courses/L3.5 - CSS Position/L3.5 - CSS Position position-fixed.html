@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position fixed</title>
+
+    <!--
+       
+    -->
+
+    <style>
+        body {
+            font-weight: bold;
+        }
+
+        .parent {
+            background-color: lightblue;
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            margin: 20px;
+            border: 2px solid lightgray;
+        }
+
+        .first {
+            background-color: lightgreen;
+            width: 100px;
+            height: 100px;
+        }
+
+        .second {
+            background-color: lightgoldenrodyellow;
+            width: 100px;
+            height: 100px;
+
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        .third {
+            background-color: lightcoral;
+            width: 100px;
+            height: 100px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        div.center-text p {
+            position: relative;
+            top: 40%;
+            text-align: center;
+        }
+
+        .right-bottom {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="parent">
+        <p class="right-bottom">parent</p>
+        <div class="center-text">
+            <div class="first">
+                <p>first</p>
+            </div>
+            <div class="second">
+                <p>second</p>
+            </div>
+            <div class="third">
+                <p>third</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

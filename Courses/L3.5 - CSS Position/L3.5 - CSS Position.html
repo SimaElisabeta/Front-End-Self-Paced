@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+
+    <!--
+        What is position used for? Position issues.
+        - There are five types of position: normal, absolute, fixed, relative, and sticky. When you use different combinations 
+        of properties position, left, top, right and bottom, it is possible to overlay elements on each other, display at a point 
+        with certain coordinates, fix elements at a specified position, determine the position of one element relative to another, and so on. 
+        By controlling positioning, you can dynamically change the position of elements without reloading the page, creating animation and various effects.
+
+        position: static
+        - HTML elements are positioned static by default.
+        - Static positioned elements are not affected by the top, bottom, left, and right properties.
+        - An element with position: static; is not positioned in any special way; it is always positioned according to the normal flow of the page
+
+        position: relative
+        - The value relative is similar to static in that relatively positioned elements.
+        - The main difference is that using relative positioning now unlocks other CSS layout properties:
+            * The element is positioned relative to other elements on the page.
+            * Properties top, right, bottom, left can be applied.
+            * The element keeps its proportions and the space reserved for it.
+            * Child elements with position: absolute are positioned relative to this block.
+            !Important: Using position: relative on an element does not change the normal flow and does not affect other elements.
+
+        position: absolute
+        - With absolute positioning, the element is removed from the normal flow. The nearest elements take its place. And the element itself is 
+        assigned a position relative to the nearest positioned parent or viewport window.
+    -->
+
+    <style>
+        body {
+            font-weight: bold;
+        }
+
+        .parent {
+            background-color: lightblue;
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            margin: 20px;
+            border: 2px solid lightgray;
+        }
+
+        .first {
+            background-color: lightgreen;
+            width: 100px;
+            height: 100px;
+        }
+
+        .second {
+            background-color: lightgoldenrodyellow;
+            width: 100px;
+            height: 100px;
+
+            /* position: relative;
+            top: 20px;
+            left: 20px; */
+
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .third {
+            background-color: lightcoral;
+            width: 100px;
+            height: 100px;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        div.center-text p {
+            position: relative;
+            top: 40%;
+            text-align: center;
+        }
+
+        .right-bottom {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="parent">
+        <p class="right-bottom">parent</p>
+        <div class="center-text">
+            <div class="first">
+                <p>first</p>
+            </div>
+            <div class="second">
+                <p>second</p>
+            </div>
+            <div class="third">
+                <p>third</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
