@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Advanced - Responsive Design</title>
+
+    <!-- 
+    Terminology - Mobilefirst:
+        - The term, mobile first could refer to many different concepts, or you may consider this in different levels, such as:
+            * a product principle: the business and the production team must focus on the mobile solution first
+            * design methodology: start with the mobile, and create other versions later based on the starting point - the mobile
+            * a low-level implementation approach: the first CSS is created for the mobile and other versions added with the media query min-width
+    
+
+    Adaptive Web Design (AWD):
+        - Uses the server to detect the device/ user/ network the website is being viewed on (desktop, tablet, smartphone) and sends specific files for that device.
+        - It usually means different .css files, different images and many times different documents (HTML) with different features as well.
+        - While many parts can be shared between the variations, we need to develop (+ test and maintain) different versions of the same site.
+        
+        - Even the term “Adaptive” are used in different ways: adaptive could mean adaptive in any way (on client side as well).
+        - Here, we need to focus on solutions and technologies ,i.e., the adaptivity could happen on:
+            * backend, server-side
+            * client-side
+        ... and usually, it happens in both ways to an extent.
+
+
+    Responsive Web Design:
+        - Uses the client-side to detect the device features (e.g., width, resolution) to utilize specific content (CSS, media) providing 
+        different user experience for different devices/viewport widths.
+
+    
+    Media queries:
+        - Media queries let you adapt your site or app depending on the presence or value of various device characteristics and parameters.
+        - They are a key component of responsive design. Forexample, a media query can shrink the font size on small devices, increase the padding between 
+        paragraphs when a page is viewed in portrait mode, or bump up the size of buttons on touch screens.
+        - In CSS, use the @media at-rule to conditionally apply part of a style sheet based on the result of a media query. 
+        Use @import to conditionally apply an entire style sheet.
+    
+
+    Media Types:
+        * all - Suitable for all devices.
+        * print - Intended for paged material and documents viewedonascreen inprintpreviewmode.
+        * screen - Intended primarily for screens.
+        * speech - Intended forspeechsynthesizers.
+
+        Example: 
+            @media screen and (min-width: 900px) 
+                { article { 
+                    padding: 1rem 3rem; 
+                    }
+                }
+    
+    Logical operators:
+        * and - Used for combining multiple media features together into a single media query. It is also used for joining media features with media types.
+        * not - Used to negate a media query, returning true if the query would otherwise return false.
+        * only - Prevents older browsers that do not support media queries with media features from applying the given styles. It has no effect on modern browsers.
+        * , - Commas are used to combine multiple media queries into a single rule.
+    
+
+    Media Features:
+        - Media features describe specific characteristics of the user agent, output device, or environment. Media feature expressions test for their presence or 
+        value, and are entirely optional.
+        - Each media feature expression must be surrounded by parentheses.
+        - While there are many different media features, you will predominantly use the width (width of the viewport including width of scrollbar)
+    
+
+    Media Features-width:
+        - Basically, it is used it as min-width and max-width
+        - The width CSS media feature can be used to test the width of the viewport (or the page box,for paged media).
+        - The width featureis specified as a <length> value representing the viewport width. It is a range feature, 
+        meaning that you can also use the prefixed min-width and max-width variants to query minimum and maximum values, respectively.
+
+
+            /* Minimum width */ 
+            @media (min-width: 320px) { 
+                div { 
+                    background: yellow; 
+                } 
+            }
+
+            /* Maximum width */ 
+            @media (max-width: 768px) { 
+                div { 
+                    border: 2pxsolidblue; 
+                } 
+            }
+    
+    
+    Breakpoints:
+        - Breakpoints will determine the layout at particular view port widths.
+        - The more break point you create, the more bugs control you have over the user experience.
+
+        /* Small devices (landscape phones, 576px and up) */ 
+        @media (min-width: 576px) {...}
+
+        /* Medium devices (tablets, 768px and up) */
+        @media (min-width: 768px) {...}
+
+        /* Large devices (desktops, 992px and up) */
+        @media (min-width: 992px) {...}
+
+        /*Extra large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) { ...}
+        
+
+        /*Minimum width -> mobile first approach */
+        @media (min-width: 320px) {
+            div {
+                background: yellow;
+            }
+        }
+
+
+        /*Maximum width -> desktop first approach */
+        @media (max-width: 768px) {
+            div {
+                border: 2pxsolidblue;
+            }
+        }
+
+
+        /* Maximum width -> range */
+        @media (min-width: 320px) and (max-width: 768px) {
+            div {
+                border: 2px solid blue;
+            }
+        }
+
+
+
+
+
+    -->
+
+    <style>
+        /* mobile first  */
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* desktop  */
+        @media screen and (min-width: 600px) {
+            .container {
+                flex-direction: row;
+            }
+        }
+
+        .box {
+            background-color: lightblue;
+            padding: 1rem;
+        }
+
+        .box:nth-of-type(2) {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil pariatur deleniti incidunt
+            optio, ratione officiis est iusto perferendis accusantium fugit, laboriosam corporis architecto ab eveniet
+            perspiciatis? Obcaecati eos error molestias!</div>
+        <div class="box">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit debitis tempora minima.
+            Magnam modi laudantium, quasi veniam, a ipsam fugit tempore accusamus necessitatibus possimus nulla ab vitae
+            debitis illum sed?</div>
+    </div>
+
+</body>
+
+</html>

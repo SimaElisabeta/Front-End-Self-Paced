@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Methodologies BEM</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 
+    Block Element Modifier
+    The Basics Of BEM:
+        - The BEM methodology is a set of universal rules that can be applied regardless of the technologies used, such as CSS, Sass, HTML, JavaScriptor React. 
+        BEM helps to solve the following tasks:
+            * Reuse the layout;
+            * Move layout fragments around within a project safely;
+            * Move the finished layout between projects;
+            * Create stable, predictable and clear code;
+            * Reduce the project debugging time.
+    -->
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+
+            <header class="card__header">
+                <p><b>Entry</b>
+                    <span class="card__price">$14</span>/month
+                    <span class="badge">10% OFF</span>
+                </p>
+                <p>Easy start on the cloud</p>
+            </header>
+            <div class="card__body">
+                <ul>
+                    <li>10 websites</li>
+                    <li>1 Bandwidth</li>
+                    <li>100 GB SSD Storage</li>
+                    <li>3 GB RAM</li>
+                </ul>
+            </div>
+            <div class="card__confirm">
+                <button class="btn-large">BUY NOW</button>
+            </div>
+
+        </div>
+
+        <div class="card card-large">
+            <header class="card__header card__header-secondary">
+                <p><b>Business</b>
+                    <span class="card__price">$24</span>/month
+                    <span class="badge badge-dark">10% OFF</span>
+                </p>
+                <p>Easy start on the cloud</p>
+            </header>
+
+            <div class="card__body">
+                <ul>
+                    <li>Unlimited websites</li>
+                    <li>Unlimited Bandwidth</li>
+                    <li>200 GB SSD Storage</li>
+                    <li>5 GB RAM</li>
+                </ul>
+            </div>
+
+            <div class="card__confirm">
+                <button class="btn-large btn-dark">BUY NOW</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <header class="card__header">
+                <p><b>Business Plus</b>
+                    <span class="card__price">$54</span>/month
+                    <span class="badge">10% OFF</span>
+                </p>
+                <p>Easy start on the cloud</p>
+            </header>
+
+            <div class="card__body">
+                <ul>
+                    <li>Unlimited websites</li>
+                    <li>Unlimited Bandwidth</li>
+                    <li>500 GB SSD Storage</li>
+                    <li>10 GB RAM</li>
+                </ul>
+            </div>
+
+            <div class="card__confirm">
+                <button class="btn-large">BUY NOW</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
